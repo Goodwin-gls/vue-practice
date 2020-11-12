@@ -34,7 +34,7 @@
         <small 
           class="helper-text invalid"
           v-else-if="$v.password.$dirty && !$v.password.minLength"
-        >Пароль должен быть {{$v.password.$params.minLength.min}} символов. Сейчас он {{password.length}}</small>
+        >Пароль должен быть {{$v.password.$params.minLength.min}} символов. Сейчас он {{password.length}} символов</small>
       </div>
     </div>
     <div class="card-action">
@@ -58,6 +58,7 @@
 
 <script>
 import {email, required, minLength} from 'vuelidate/lib/validators'
+import messages from '@/utils/messages'
 
 export default {
   name: 'login',
@@ -68,6 +69,11 @@ export default {
   validations: {
     email: {email, required},
     password: {required, minLength: minLength(6)}
+  },
+  mounted() {
+    if (messages[this.$route.query.message]) {
+      this.$message(messages[this.$route.query.message])
+    }
   },
   methods:  {
     sumbitHandler() {
