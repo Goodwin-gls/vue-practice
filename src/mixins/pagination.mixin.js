@@ -1,13 +1,15 @@
 import _ from 'lodash'
 
 export default {
-    data: () => ({
-        page: +this.$route.query.page || 1,
-        pageSize: 2,
-        pageCount: 0,
-        allItems: [],
-        items: []
-    }),
+    data() {
+        return {
+            page: +this.$route.query.page || 1,
+            pageSize: 2,
+            pageCount: 0,
+            allItems: [],
+            items: []
+            }
+        },
     methods: {
         setupPagination(allItems) {
             this.allItems = _.chunk(allItems, this.pageSize)
