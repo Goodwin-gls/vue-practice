@@ -41,6 +41,9 @@ import {mapGetters, mapActions} from 'vuex'
 import {required} from 'vuelidate/lib/validators'
 
 export default {
+  metaInfo: {
+    title: 'Profile'
+  },
   data: () => ({
     name: '',
     isRuLocale: true
