@@ -1,5 +1,5 @@
 <template>
-  <form class="card auth-card" @submit.prevent="sumbitHandler">
+  <form class="card auth-card" @submit.prevent="submitHandler">
     <div class="card-content">
       <span class="card-title">Домашняя бухгалтерия</span>
       <div class="input-field">
@@ -76,7 +76,7 @@ export default {
     }
   },
   methods:  {
-    async sumbitHandler() {
+    async submitHandler() {
       if (this.$v.$invalid) {
       this.$v.$touch()
       return
